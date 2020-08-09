@@ -1,16 +1,27 @@
 import fs from "fs-extra";
+import os from "os";
 import glob from "glob-promise";
 import path from "path";
 import { replaceInFile } from "replace-in-file";
 
 export const IDEA = ".idea";
 const workingDir = process.cwd();
-const template = `${workingDir}/.idea_template/.idea`;
+const template = path.join(workingDir, ".idea_template", ".idea");
 const project = path.basename(workingDir);
 const workspace = `${IDEA}/workspace.xml`;
 const iml = `${IDEA}/${project}.iml`;
 
-export const copyTemplate = (): Promise<unknown> => {
+const getTemplate = () => {
+  const result = path.join(os.homedir(), ".idea_template", ".idea");
+  if (fs.pathExistsSync(result)) {
+    // prefer the template stored in the user's home directory
+    return result;
+  }
+  return; // use the built-in template otherwise
+};
+
+export const copyTemplate = (): Promise<string> => {
+  const userTemplate = getTemplate();
   const getProjectId = () => {
     if (fs.pathExistsSync(workspace)) {
       const file = fs.readFileSync(workspace, { encoding: "utf8" });
@@ -74,14 +85,16 @@ export const copyTemplate = (): Promise<unknown> => {
 
   const processTemplate = (projectId: string) => () => {
     fs.removeSync(iml);
-    glob(`${IDEA}/*.iml`)
+    return glob(`${IDEA}/*.iml`)
       .then(renameIml)
       .then(setProjectName)
       .then(setProjectId(projectId))
       .then(setNodeModulesPath)
-      .then();
+      .then(() => Promise.resolve(userTemplate || "Built-in"));
   };
 
   const projectId = getProjectId(); // retain the target project's id
-  return fs.copy(template, IDEA).then(processTemplate(projectId));
+  return fs
+    .copy(userTemplate || template, IDEA)
+    .then(processTemplate(projectId));
 };

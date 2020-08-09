@@ -17,6 +17,7 @@ export interface AppProps {
 
 export const App = ({ force }: AppProps) => {
   const [state, setState] = React.useState<appState>("initializing");
+  const [template, setTemplate] = React.useState("");
   React.useEffect(() => {
     fs.pathExists(IDEA).then((exists) => {
       setState(exists ? "error" : "copying");
@@ -27,7 +28,8 @@ export const App = ({ force }: AppProps) => {
     if (state === "copying") {
       setState("processing");
       copyTemplate()
-        .then(() => {
+        .then((template) => {
+          setTemplate(template);
           setState("success");
         })
         .catch((err) => console.error(err));
@@ -46,7 +48,7 @@ export const App = ({ force }: AppProps) => {
       <Text color="blue">webstorm-init {version}</Text>
       <Spacer />
       {(state === "processing" || state === "initializing") && <Processing />}
-      {state === "success" && <Success />}
+      {state === "success" && <Success template={template} />}
       {state === "error" && <Error {...errorProps} />}
     </Box>
   );
