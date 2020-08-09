@@ -11,17 +11,32 @@ const project = path.basename(workingDir);
 const workspace = `${IDEA}/workspace.xml`;
 const iml = `${IDEA}/${project}.iml`;
 
-const getTemplate = () => {
-  const result = path.join(os.homedir(), ".idea_template", ".idea");
+const getTemplate = (templatePath: string) => {
+  const result = templatePath
+    ? path.join(templatePath, ".idea")
+    : path.join(os.homedir(), ".idea_template", ".idea");
+
   if (fs.pathExistsSync(result)) {
     // prefer the template stored in the user's home directory
     return result;
   }
+  if (templatePath) {
+    // user explicitly requested using a custom template. If that does not exist: cancel!
+    throw new Error(
+      `Invalid template path. No .idea folder found in ${templatePath}`
+    );
+  }
   return; // use the built-in template otherwise
 };
 
-export const copyTemplate = (): Promise<string> => {
-  const userTemplate = getTemplate();
+export const copyTemplate = (templatePath: string): Promise<string> => {
+  let userTemplate: string | undefined;
+  try {
+    userTemplate = getTemplate(templatePath);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+
   const getProjectId = () => {
     if (fs.pathExistsSync(workspace)) {
       const file = fs.readFileSync(workspace, { encoding: "utf8" });
