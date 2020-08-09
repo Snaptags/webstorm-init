@@ -6,6 +6,7 @@ import { Box, Spacer, Text } from "ink";
 import { Error } from "../Error";
 import { Processing } from "../Processing";
 import { Success } from "../Success";
+import { version } from "../../version";
 
 type appState = "initializing" | "copying" | "processing" | "success" | "error";
 
@@ -41,7 +42,7 @@ export const App = ({ force }: AppProps) => {
 
   return (
     <Box flexDirection={"column"} height={5}>
-      <Text color="blue">webstorm-init v{pjson.version}</Text>
+      <Text color="blue">webstorm-init {version}</Text>
       <Spacer />
       {(state === "processing" || state === "initializing") && <Processing />}
       {state === "success" && <Success />}

@@ -1,33 +1,15 @@
 import React from "react";
-import { Text, Box } from "ink";
-import pjson from "pjson";
+import { Text, Box, Spacer } from "ink";
+import { version } from "../version";
 
 export const Help = () => {
   return (
-    <Box flexDirection="column" alignItems="center" width={54}>
-      <Box>
-        <Text color="green">I am green</Text>
-      </Box>
-      <Box>
-        <Text color="red">I am red</Text>
-      </Box>
-      <Box>
-        <Text color="blue">I am blue</Text>
-      </Box>
-      <Box>
-        <Text italic>I am italic</Text>
-      </Box>
-      <Box>
-        <Text underline>I am underline</Text>
-      </Box>
-      <Box>
-        <Text inverse>I am inversed</Text>
-      </Box>
-      <Box>
-        <Text color="blue" bold>
-          {pjson.version}
-        </Text>
-      </Box>
+    <Box flexDirection="column" alignItems="center" height={7} width={60}>
+      <Text color="blue">webstorm-init {version}</Text>
+      <Spacer />
+      <Text>
+        CLI tool to write initial WebStorm settings into a new project
+      </Text>
       <Box margin={1}>
         <Text bold>Alias: wsi</Text>
       </Box>

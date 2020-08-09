@@ -1,18 +1,25 @@
 import parseArgs from "minimist";
 import React from "react";
-import { render } from "ink";
+import { render, useApp } from "ink";
 import { Help } from "./components/Help";
 import { App } from "./components/App";
+import { version } from "./version";
 
 main();
 
 function main() {
   const argv: ParsedArgs = parseArgs(process.argv.slice(2), {
-    boolean: ["help", "force"],
-    alias: { h: "help", f: "force" },
+    boolean: ["force", "help", "version"],
+    alias: { f: "force", h: "help", v: "version" },
   });
   const showHelp = argv.h;
   const force = !!argv.f;
+  const showVersion = argv.v;
+
+  if (showVersion) {
+    console.log(version);
+    return;
+  }
 
   if (showHelp) {
     render(<Help />);
@@ -23,8 +30,10 @@ function main() {
 
 interface ParsedArgs {
   _: (string | number)[];
-  help?: boolean;
-  h?: boolean;
   force?: boolean;
   f?: boolean;
+  help?: boolean;
+  h?: boolean;
+  version?: boolean;
+  v?: boolean;
 }
