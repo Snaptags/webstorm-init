@@ -6,7 +6,7 @@ import { replaceInFile } from "replace-in-file";
 
 export const IDEA = ".idea";
 const workingDir = process.cwd();
-const template = path.join(workingDir, ".idea_template", ".idea");
+const template = path.join(__dirname, ".idea_template", ".idea");
 const project = path.basename(workingDir);
 const workspace = `${IDEA}/workspace.xml`;
 const iml = `${IDEA}/${project}.iml`;
