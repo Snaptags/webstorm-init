@@ -8,35 +8,47 @@ import { Processing } from "../Processing";
 import { Success } from "../Success";
 import { version } from "../../version";
 import { copyTemplate, IDEA } from "../../copyTemplate";
+import { Confirm } from "../Confirm";
 
-type appState = "initializing" | "copying" | "processing" | "success" | "error";
+type appState =
+  | "initializing"
+  | "confirm"
+  | "copying"
+  | "processing"
+  | "success"
+  | "error";
 
 export interface AppProps {
   force: boolean;
+  templatePath: string;
 }
 
-export const App = ({ force }: AppProps) => {
+export const App = ({ force, templatePath }: AppProps) => {
+  const [error, setError] = React.useState("");
   const [state, setState] = React.useState<appState>("initializing");
   const [template, setTemplate] = React.useState("");
   React.useEffect(() => {
     fs.pathExists(IDEA).then((exists) => {
-      setState(exists ? "error" : "copying");
+      setState(exists ? "confirm" : "copying");
     });
   }, []);
 
   React.useEffect(() => {
     if (state === "copying") {
       setState("processing");
-      copyTemplate()
+      copyTemplate(templatePath)
         .then((template) => {
           setTemplate(template);
           setState("success");
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          setState("error");
+          setError(err.toString());
+        });
     }
   }, [state]);
 
-  const errorProps = {
+  const confirmProps = {
     confirm: force,
     idea: IDEA,
     onConfirm: () => setState("copying"),
@@ -49,7 +61,8 @@ export const App = ({ force }: AppProps) => {
       <Spacer />
       {(state === "processing" || state === "initializing") && <Processing />}
       {state === "success" && <Success template={template} />}
-      {state === "error" && <Error {...errorProps} />}
+      {state === "confirm" && <Confirm {...confirmProps} />}
+      {state === "error" && <Error>{error}</Error>}
     </Box>
   );
 };
