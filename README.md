@@ -17,12 +17,17 @@ npm i -g webstorm-init
 
 ## Options
 
-| Option         | Description                                                                                                                       |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| -f, --force    | prompt to overwrite existing WebStorm config folder                                                                               |
-| -h, --help     | show built-in help page                                                                                                           |
-| -t, --template | path to be used as template. Defaults to the user's home directory, or the built-in template, if ~/.idea_template does not exist. |
-| -v, --version  | show version info                                                                                                                 |
+     Option          | Description
+     --------------- | ----------------------------------------------------------------
+     -f, --force     | prompt to overwrite existing WebStorm config folder
+                     |
+     -h, --help      | show built-in help page
+                     |
+     -t, --template  | path to be used as template.
+                     | Defaults to the user's home directory, or the built-in template,
+                     | if ~/.idea_template does not exist.
+                     |
+     -v, --version   | show version info
 
 ## Limitations
 
