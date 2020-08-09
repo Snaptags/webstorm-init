@@ -32,7 +32,9 @@ npm i -g webstorm-init
 ## Limitations
 
 WebStorm manages a **second** workspace file in your profile directory to manage
-open files and folders opened in the project browser. These files need a project specific unique ID. webstorm-init cannot recreate this ID, i.e. it will be removed from the project settings and WebStorm will start with a blank view and a collapsed project tree.
+open files and folders opened in the project browser. These files need a project specific unique ID.
+webstorm-init cannot recreate this ID, i.e. WebStorm will start with a blank view and a collapsed project tree for new projects.
+When overwriting existing settings the project id is retained.
 
 ## Disclaimer
 
