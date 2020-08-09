@@ -7,15 +7,14 @@ import { Error } from "../Error";
 import { Processing } from "../Processing";
 import { Success } from "../Success";
 import { version } from "../../version";
+import { copyTemplate, IDEA } from "../../copyTemplate";
 
 type appState = "initializing" | "copying" | "processing" | "success" | "error";
-
-const IDEA = ".ideas"; // TODO: this is a debugging folder name
-const template = `${process.cwd()}/.idea_template`;
 
 export interface AppProps {
   force: boolean;
 }
+
 export const App = ({ force }: AppProps) => {
   const [state, setState] = React.useState<appState>("initializing");
   React.useEffect(() => {
@@ -27,8 +26,10 @@ export const App = ({ force }: AppProps) => {
   React.useEffect(() => {
     if (state === "copying") {
       setState("processing");
-      fs.copy(template, IDEA)
-        .then(() => setState("success"))
+      copyTemplate()
+        .then(() => {
+          setState("success");
+        })
         .catch((err) => console.error(err));
     }
   }, [state]);
