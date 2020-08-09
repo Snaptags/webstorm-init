@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ChangeListManager">
-    <list default="true" id="369a213e-4a4f-411d-b0d3-81ff08be1afa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1fok0JH6BaWwKkvIos8COhsVmzi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,39 +24,7 @@
     <property name="ts.external.directory.path" value="idea_template\node_modules\typescript\lib" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="369a213e-4a4f-411d-b0d3-81ff08be1afa" name="Default Changelist" comment="" />
-      <created>1596891608141</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1596891608141</updated>
-      <workItem from="1596891609193" duration="3602000" />
-      <workItem from="1596895506738" duration="36000" />
-      <workItem from="1596895554354" duration="352000" />
-      <workItem from="1596896016211" duration="17000" />
-    </task>
-    <servers />
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="378" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596894905303">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="378" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.-484.1080.1880/3640.0.1920.1040@0.0.2560.1400" timestamp="1596894905303" />
-    <state x="179" y="345" key="SettingsEditor" timestamp="1596895899906">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="179" y="345" key="SettingsEditor/0.0.2560.1400/2560.-484.1080.1880/3640.0.1920.1040@0.0.2560.1400" timestamp="1596895899906" />
-    <state x="330" y="310" width="636" height="780" key="find.popup" timestamp="1596895344246">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="330" y="310" width="636" height="780" key="find.popup/0.0.2560.1400/2560.-484.1080.1880/3640.0.1920.1040@0.0.2560.1400" timestamp="1596895344246" />
-    <state x="311" y="319" width="672" height="678" key="search.everywhere.popup" timestamp="1596895865193">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="311" y="319" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/2560.-484.1080.1880/3640.0.1920.1040@0.0.2560.1400" timestamp="1596895865193" />
   </component>
 </project>
