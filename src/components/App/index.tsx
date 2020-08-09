@@ -9,8 +9,8 @@ import { Success } from "../Success";
 
 type appState = "initializing" | "copying" | "processing" | "success" | "error";
 
-const IDEA = ".ideas";
-const template = `${process.cwd()}/idea_template`;
+const IDEA = ".ideas"; // TODO: this is a debugging folder name
+const template = `${process.cwd()}/.idea_template`;
 
 export const App = () => {
   const [state, setState] = React.useState<appState>("initializing");
