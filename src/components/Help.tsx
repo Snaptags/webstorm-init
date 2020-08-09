@@ -13,9 +13,9 @@ export const Help = () => {
     {
       option: "-t, --template",
       desc:
-        "path to be used as template. Defaults to the user's home directory, or the built-in template, if ~/.idea_template does not exist.",
+        "path to be used as template. Defaults to the user's home directory, or the built-in template, if ~/.idea_template does not exist. Has to be the last argument.",
     },
-    { option: "-v, --version", desc: "show version info" },
+    { option: "-v, --version", desc: "show version info and exit" },
   ];
   return (
     <>
