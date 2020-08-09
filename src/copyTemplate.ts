@@ -76,7 +76,7 @@ export const copyTemplate = (templatePath: string): Promise<string> => {
   const setProjectId = (projectId: string) => () => {
     const options = {
       files: workspace,
-      from: /<component name="ProjectId" id=".*" ?\/>/,
+      from: /<component name="ProjectId" id="[^"]*" ?\/>/,
       to: `<component name="ProjectId" id="${projectId}" />`,
     };
     replaceInFile(options).then((results) => {
