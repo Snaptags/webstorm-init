@@ -8,7 +8,7 @@
     "wsi": "./bin/wsi"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc & copyfiles --all ./.idea_template/**/* dist",
     "debug": "node --inspect=0.0.0.0:13579 --nolazy -r ts-node/register ./src/index.tsx",
     "prepare": "npm run build",
     "start": "ts-node ./src",
@@ -38,6 +38,7 @@
     "@types/minimist": "^1.2.0",
     "@types/node": "^14.0.27",
     "@types/react": "^16.9.45",
+    "copyfiles": "^2.3.0",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
     "glob-promise": "^3.4.0",
