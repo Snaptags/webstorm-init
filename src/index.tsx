@@ -8,16 +8,16 @@ main();
 
 function main() {
   const argv: ParsedArgs = parseArgs(process.argv.slice(2), {
-    boolean: ["help"],
-    string: ["lang"],
-    alias: { h: "help", l: "lang" },
+    boolean: ["help", "force"],
+    alias: { h: "help", f: "force" },
   });
   const showHelp = argv.h;
+  const force = !!argv.f;
 
   if (showHelp) {
     render(<Help />);
   } else {
-    render(<App />, { exitOnCtrlC: false });
+    render(<App force={force} />, { exitOnCtrlC: false });
   }
 }
 
@@ -25,6 +25,6 @@ interface ParsedArgs {
   _: (string | number)[];
   help?: boolean;
   h?: boolean;
-  lang?: string;
-  l?: string;
+  force?: boolean;
+  f?: boolean;
 }

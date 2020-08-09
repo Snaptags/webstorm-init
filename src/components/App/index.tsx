@@ -12,7 +12,10 @@ type appState = "initializing" | "copying" | "processing" | "success" | "error";
 const IDEA = ".ideas"; // TODO: this is a debugging folder name
 const template = `${process.cwd()}/.idea_template`;
 
-export const App = () => {
+export interface AppProps {
+  force: boolean;
+}
+export const App = ({ force }: AppProps) => {
   const [state, setState] = React.useState<appState>("initializing");
   React.useEffect(() => {
     fs.pathExists(IDEA).then((exists) => {
@@ -29,13 +32,20 @@ export const App = () => {
     }
   }, [state]);
 
+  const errorProps = {
+    confirm: force,
+    idea: IDEA,
+    onConfirm: () => setState("copying"),
+    scriptName: pjson.name,
+  };
+
   return (
     <Box flexDirection={"column"} height={5}>
       <Text color="blue">webstorm-init v{pjson.version}</Text>
       <Spacer />
       {(state === "processing" || state === "initializing") && <Processing />}
       {state === "success" && <Success />}
-      {state === "error" && <Error idea={IDEA} scriptName={pjson.name} />}
+      {state === "error" && <Error {...errorProps} />}
     </Box>
   );
 };
