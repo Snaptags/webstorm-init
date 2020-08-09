@@ -44,5 +44,5 @@ const processTemplate = () => {
 };
 
 export const copyTemplate = (): Promise<unknown> => {
-  return fs.copy(template, IDEA).then(copyTemplate);
+  return fs.copy(template, IDEA).then(processTemplate);
 };
