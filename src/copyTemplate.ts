@@ -29,7 +29,7 @@ const setNodeModulesPath = () => {
   const options = {
     files: `${IDEA}/workspace.xml`,
     from: /<property name="(.*)" value=".*(.)node_modules(.*)" ?\/>/g,
-    to: `<property name="$1" value="${workingDir}$2node_modules$3 />`,
+    to: `<property name="$1" value="${workingDir}$2node_modules$3" />`,
   };
   return replaceInFile(options);
 };
