@@ -1,5 +1,8 @@
 # webstorm-init
 
+[![npm version](https://badge.fury.io/js/webstorm-init.svg)](https://badge.fury.io/js/webstorm-init)
+![NPM](https://img.shields.io/npm/l/webstorm-init)
+
 CLI tool to write initial WebStorm settings into a new project
 
 ## Requirements
