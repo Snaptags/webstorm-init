@@ -23,14 +23,14 @@ npm i -g webstorm-init
 ## Options
 
      Option          | Description
-     --------------- | ----------------------------------------------------------------
+     --------------- | ---------------------------------------------------
      -f, --force     | prompt to overwrite existing WebStorm config folder
                      |
      -h, --help      | show built-in help page
                      |
      -t, --template  | path to be used as template.
-                     | Defaults to the user's home directory, or the built-in template,
-                     | if ~/.idea_template does not exist.
+                     | Defaults to the user's home directory, or the
+                     | built-in template, if ~/.idea_template does not exist.
                      |
      -v, --version   | show version info
 
@@ -52,13 +52,13 @@ There are three ways to influence how webstorm-init is setting up the .idea fold
 
 The built-in project settings are rather opinionated any optimized to match my workflows. Use a custom template to define your own settings.
 
-- Language & Frameworks > JavaScript > Prettier: \
+- Language & Frameworks > JavaScript > Prettier:
   - use Prettier package supplied by the project
   - Run for files on code reformat **and** on save
-- Language & Frameworks > JavaScript > Code Quality Tools > ESLint: \
-- Editor > Inspections: Turn **off** all JavaScript and TypeScript inspections
+- Language & Frameworks > JavaScript > Code Quality Tools > ESLint:
   - Automatic ESLint configuration
   - Run eslint --fix on save
+- Editor > Inspections: Turn **off** all JavaScript and TypeScript inspections
 - Editor > Code Style > JavaScript > Imports
   - Merge imports for members of the same module
   - Use paths relative to the project, resource or sources roots
