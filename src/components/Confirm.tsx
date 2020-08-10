@@ -15,11 +15,11 @@ export const Confirm = ({
   idea,
   onConfirm,
   scriptName,
-}: ConfirmProps) => {
+}: ConfirmProps): JSX.Element => {
   const [showHint, setShowHint] = React.useState(!confirm);
   const { exit } = useApp();
   if (confirm) {
-    useInput((input, key) => {
+    useInput((input) => {
       if (input.toLowerCase() === "y") {
         onConfirm();
       } else {

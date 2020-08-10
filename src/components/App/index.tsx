@@ -23,7 +23,7 @@ export interface AppProps {
   templatePath: string;
 }
 
-export const App = ({ force, templatePath }: AppProps) => {
+export const App = ({ force, templatePath }: AppProps): JSX.Element => {
   const [error, setError] = React.useState("");
   const [state, setState] = React.useState<appState>("initializing");
   const [template, setTemplate] = React.useState("");

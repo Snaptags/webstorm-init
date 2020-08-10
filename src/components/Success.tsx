@@ -5,7 +5,7 @@ export interface SuccessProps {
   template: string;
 }
 
-export const Success = ({ template }: SuccessProps) => {
+export const Success = ({ template }: SuccessProps): JSX.Element => {
   return (
     <>
       <Text color="green">✔ project successfully initialized.</Text>

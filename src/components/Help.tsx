@@ -2,7 +2,7 @@ import React from "react";
 import { Text, Box, Spacer } from "ink";
 import { version } from "../version";
 
-export const Help = () => {
+export const Help = (): JSX.Element => {
   const width = 70;
   const options = [
     {

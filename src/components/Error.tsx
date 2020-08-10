@@ -5,7 +5,7 @@ export type ErrorProps = {
   children: string | React.ReactNode;
 };
 
-export const Error = ({ children }: ErrorProps) => {
+export const Error = ({ children }: ErrorProps): JSX.Element => {
   return (
     <>
       <Text color="red" bold>
