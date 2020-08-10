@@ -29,6 +29,38 @@ npm i -g webstorm-init
                      |
      -v, --version   | show version info
 
+## Templates
+
+There are three ways to influence how webstorm-init is setting up the .idea folder:
+
+- use the --template command line parameter to specify a project directory, e.g. \
+   `webstorm-init --template c:\dev\myproject`
+  or on Linux/Mac:
+  `webstorm-init --template ~/dev/myproject`
+- create a template folder in your _home_ directory and put a .idea folder there to be used as template:
+  `c:\users\myname\.idea_template\.idea`
+  or on Linux/Mac:
+  `~/.idea_template/.idea`
+- skip **both** steps, then webstorm-init uses its built-in template (default)
+
+### Built-In settings
+
+The built-in project settings are rather opinionated any optimized to match my workflows. Use a custom template to define your own settings.
+
+- Language & Frameworks > JavaScript > Prettier: \
+  - use Prettier package supplied by the project
+  - Run for files on code reformat **and** on save
+- Language & Frameworks > JavaScript > Code Quality Tools > ESLint: \
+- Editor > Inspections: Turn **off** all JavaScript and TypeScript inspections
+  - Automatic ESLint configuration
+  - Run eslint --fix on save
+- Editor > Code Style > JavaScript > Imports
+  - Merge imports for members of the same module
+  - Use paths relative to the project, resource or sources roots
+- Editor > Code Style > TypeScript > Imports
+  - Use paths relatvie to tsconfig.json
+- Misc: mark the project's `src` folder as _Resource Root_
+
 ## Limitations
 
 WebStorm manages a **second** workspace file in your profile directory to manage
