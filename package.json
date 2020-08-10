@@ -1,6 +1,6 @@
 {
   "name": "webstorm-init",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI tool to write initial WebStorm settings into a new project",
   "preferGlobal": true,
   "bin": {
