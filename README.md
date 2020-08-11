@@ -53,7 +53,7 @@ There are three ways to influence how webstorm-init is setting up the .idea fold
 
 ### Built-In settings
 
-The built-in project settings are rather opinionated any optimized to match my workflows. Use a custom template to define your own settings.
+The built-in project settings are rather opinionated and optimized to match my workflows. Use a custom template to define your own settings.
 
 - Language & Frameworks > JavaScript > Prettier:
   - use Prettier package supplied by the project
@@ -66,7 +66,7 @@ The built-in project settings are rather opinionated any optimized to match my w
   - Merge imports for members of the same module
   - Use paths relative to the project, resource or sources roots
 - Editor > Code Style > TypeScript > Imports
-  - Use paths relatvie to tsconfig.json
+  - Use paths relative to tsconfig.json
 - Misc: mark the project's `src` folder as _Resource Root_
 
 ## Limitations
