@@ -8,10 +8,14 @@
     "wsi": "./bin/wsi"
   },
   "scripts": {
-    "build": "tsc & copyfiles --all ./.idea_template/**/* dist",
+    "build": "run-s lockfile licenses compile copy-template",
+    "compile": "tsc",
+    "copy-template": "copyfiles --all ./.idea_template/**/* dist",
     "debug": "node --inspect=0.0.0.0:13579 --nolazy -r ts-node/register ./src/index.tsx",
+    "licenses": "license-checker --summary --failOn CPOL;GPL;PSFL",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
+    "lockfile": "lockfile-lint --path ./package-lock.json --type npm --validate-integrity --validate-https --allowed-hosts npm",
     "prepare": "npm run build",
     "start": "ts-node ./src",
     "watch": "tsc -w"
@@ -62,6 +66,9 @@
     "ink-testing-library": "^2.0.1",
     "jest": "^26.3.0",
     "jest-serializer-ansi": "^1.0.3",
+    "license-checker": "^25.0.1",
+    "lockfile-lint": "^4.3.7",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "ts-jest": "^26.2.0",
