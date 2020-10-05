@@ -10,6 +10,12 @@ CLI tool to write initial WebStorm settings into a new project
 The build-in templates may require WebStorm 2020.1 or newer.
 NodeJS 10 or newer required. You can use webstorm-init in Windows Powershell, Linux and MacOS.
 
+For Windows Powershell you might have to enable script execution:
+
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+```
+
 ## Installation
 
 You should install webstorm-init globally to easily access it from any project folder:
